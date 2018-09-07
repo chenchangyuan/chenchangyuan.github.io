@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hello ccy | Jack Chen的博客</title>
+  <title>Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="web前端搬运工">
+  <meta name="description" content="linux环境下安装jdk1.查看系统自带的jdk #RPM -qa|grep jdk若存在则删除jdk-1.7.0_67-fcs.x86_64 #rpm -e –nodeps jdk-1.7.0_67-fcs.x86_642.安装jdkrpm -ivh jdk-7u67-linux-x64.rpm3.配置环境变量vim /etc/profile.d/java.sh #set java envi">
+<meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello ccy">
-<meta property="og:url" content="http://yoursite.com/2018/08/31/hello-ccy/index.html">
+<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/linux环境下安装jdk/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
+<meta property="og:description" content="linux环境下安装jdk1.查看系统自带的jdk #RPM -qa|grep jdk若存在则删除jdk-1.7.0_67-fcs.x86_64 #rpm -e –nodeps jdk-1.7.0_67-fcs.x86_642.安装jdkrpm -ivh jdk-7u67-linux-x64.rpm3.配置环境变量vim /etc/profile.d/java.sh #set java envi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T00:45:51.757Z">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAegAAABDCAIAAADYngHCAAAMZ0lEQVR4nO1dUdqrKgzsntyOi3EvroWldB3nPPwqkExCUNtqO/Pdh/O3EEKIQ0wh9/H4wzg/n8/n8zmPj9dhmNKLR7gyFhOnafi0JgRBEF1Yd4gfZnCCIAiCIAiCIAiCIAiCIAjiXLzlx0mNYUpLxvu83+ywzGFKH/5Z8IQfJz8/iZMxTIm/dRDEbozz6ccdOljmBaNLmWdw3nEZX8e8BEF8EO8i7hwOl5HWLxP3+tE4k9IJgugCoM5hSmma5irtsPGu4ETxYT7zV3H0MKWtzTgX1K1HhwMVtF92xckWRNzrbIov0EDF7lKqC2bUC0DcC2GPsy9z1KrDudfTXqWaVgoByzSSUsBtgD2LD6tp6+WwFo4gCIO4AW/+PWZFc/jh8oXRW/0pR8cyq39P8hGW6VKtzcoRRUs0UCVomGbBSedF3HIzaBOTpYCwZbmrid1gX1IZyoQ+ANzGtqfjE/Vy6IUjCOJhEreKhhQ9WJyhWWb9dgmqUjKJuzlQZAq+zPwCAQfCBBojbvE77zBNtk0ew5TmMbwlmM3E/rYMjaL4fVkpLbNejkIx6DbWkEpK08EYcxNEhpUqGYwPSu6DIbHqn3O5+f3ZJm5/oFopHLD2yizbG4ddIvSaeRqdIgFvIWkawqG8Nimae5EfqcLgeFgPrVnLrCTWG5Wei3l4yKT/iIMRxM8jSNwHIm5J3GXr3RG3w/5B4jaUh0JOTZX0J0qEAvbc/6ZS56KPBq1A5o7XEjsnBvTc1p3ETRAYEeLuz3HLpHOZKil/l5JNwznuouM4O6lV6/nHSdUtDeuk5fdB2HQxSeuHSdzdmfs4P+d5RuaVLeMQMsVyj3MxmNzvLXtGc9wkboLACBG38RqNT4A8iqASEjtsqt7tVYBWtyvGmKX4SmYzK1JH1nJrwTPqRm3ThbCXPHd3d2fu41zr6FgpDCnTsBNwG9TOOXhULweJmyBMvOXmZHFA4AfBm5MEQdwUOdL6WQbfD0acBEEQdwG6fkMQBEEQBEEQBEEQxCtx5x++eBeaIAji1/F3UE9U2TAOPequAt6WAg44tgVvpyvxQEB5giCIr4fJfZ3vJY3mxSmRxoGRquCHrrAlTzuTuAni6/GmkqE3qg56EnE32Li6Mdm6Kh4vsEXiJoifgUUcVj2PHSVDv6A6aA9xt8bB99/NlpN5Ap4cTRC/CpOSTiwZev/qoB3EHdnH0jRsO4qjVXXbXBmCvE0QP4u3lAy9fXXQOHG3B+mMuK2WvE5JEL+L95QMvXt10Chxh6Lgnhy3RdwMtwnil/GmkqE3rw5q1b4LpftVy/ipEvGGk0xTEATxS3hXydDbVgeth6oDfEGexgCgZfwcdzG8sesRBPFzuPPNSYIgiJ8EgzeCIIi7gCVDrwN9jT2SRSEIgiAIgiAIgiAI4ibYf1rt7ufcLqj/BVXqgSiI0JfZw4Uevauq35o5POEQws0d6Zvwov8TpLgtL5GmoTocWJ8UDHpYeffyr70YyREiWu6a+ztO48RndCt0ma7i0lOM7tcYcOXfp8YvGsS88ia7mtPkEbRroVWE7gxx6iJm4XwpWVfXnSHqkoJ/9zL3XEv3iqE4eBNxf+Nz0mO62pc+Tdy7tPhIjd+oFs7oRvWJb/TIu6J4Ok4o64rdTwlJ85z+iiylaeqswgFb7CTuoh6qUepEVoVt3f4prvWn9Hz+XVF6yuq1gTAazggXqsVrhIvfotq5oYq4XTPqMV3UAqXM1h0rY+7IqmvT2FWyTvb6TI1fBWg6d3SozJfGEjcFcglY+QO2NS+eyzEEcU/jlOZxnP8yJ20JYkjlQAcjbou4jaqwxjNWtFr+ucrHsY07V4u4kUr2GukhtPmMagFioK4ZdZsOQKpeyIxVNUDmtduEijf0EXfLlzsrju2v8ds0nRodTpN57iuhmdvIDVBTlbdovJNtfw1TSmn+owBRy6PtHEXwBnPcjoSqZUE4mLhxLa0Qcadp2Gazdah932MBOCNLJXONMHGbRV/K+lxioK4ZdZsOQLa09DxC3LaeUa38ppEweWNVP41zpMYvNJ07Op7myWlV4giKxSh/8wOvVO2WHRF3frh7I+4KIABsz7d81Le0gpEqgaRwjLhjCQM7VYJUAmskVbJ0D869a0bdpgMAEXfPGkWJ2+xuarUvJ9eW1Yq4rZZqIJX5appOyWTEfXk4QVbdJK+sE6dEc9xxL4zpvzfHnTeRtxH3kefeVkmukVbJ0j0YyXbN6AzibkTHF4+4QyTXk+O2HpnIQDitxhz37ZArqYq0Zl5Sxa3Bsq7NzItP3IHnYphS1f5AxP3Ygu78aZ6Ryz7oYQkQtwqUu3PcFk+JNTI11Rau8rzZGYLEDWfUbTrLBOJdTOkJF84ZCoTxh3PchWLu2KAlnAiEeN3dmobsiU3njY6ew449l3gVRnQsZPvwSFlX5IBh4g76Rpn/zY9dLMmN4rK05PrqGXnRXDYAHn4yaa5KLkRz8WvTpkpZoGUR45EUztBD3GBGHabzUHUd4NGIB1g41xvW72TWr32qpJZaBw9iMgYLg5bZdC1zFMNXqxzdbbTp8OjONMnb34z9mTDm0Iga9IirgCtBEARBEARBfAVkkieaVCIIgiAIgiAIgiCI47jxj6gfV+B6KE3Sff6hsmc+aWEJufJ55kuc/TjDP19h5NCdqMs/WTmd9jpNxalu527Y4/GwD8k2HiQXlieLA60S6Yzys56RW+eGrVNZndME7Y7Z82TUT8qyKI7lDeiDg0en5jzkreffPe8ZOi+u3EbcT7UFmHN3zh0Gj7C/F58h7ovsfBG0yPRM4d3ErS5v9KtqLETsotDm5nvKz9Y3JepSnOOc5tkVIa61BEKFgL+dYM+zUaq0srhneUtI6772Eb3iXz0qq1YOsHRtrTt2m/CUbHe37tpEVPoAPkXct2HuwufRrRzFZWtJjFDUZhG3vvEB70zYtwfBbYKgTDQt/Ok4Hyo/62xT4/ycx4aDYMMX902aV21aMgvA9EBp6OcaCSOdot1bSm3Rt2v59ryghxh3goA9LVvFr+pUUmqnaa47dps+4u6o4BpSCY6Ca/wie1b3jsYZvEbou1yeke3RAQmYMs2U2JUzYQWQn+DaBqhtIyeEiRvdsV6l6YtdMHmiuodlemqDG56Hys/iUpxLSNZD3HpOYCFirwDAKaEZYWvoDPHu5kyFINfyeFryHnvgEr8twG/TkVmQGZzAumO3qVIlnjGac3+IHTegEh5lhjV+y691ByPy39rHjGyODkkAyzScFmt/STRzBrkBaupvTzp5PI+VYdrvuIWItL416u59MgMvlNtfw97ys1VuNr/+bkO3idt8VPcSt5Cr7VnJMehMOENXd4i1Ye7rWx4JMHmj9JAjxC1khmxdBJed627nWqRYCTj3zZ7Pij2jKsFR0jSUkVjTnsvWg71jERA0sjV6hBkaPl/3vTQKLattXb9ntVt6wvOf9iPkOtDqxLB7p8x4xL2//CwOc6pop1aztqaMuMWcdhN3NYN1fmpzNUUqZ+jrbmmy8EreFGzL45mIkKnHQ6LEbXY3laqdKWYXMzqudZOReEGI/twfTVcMYAdx630MhnQRIzvEHVx302lt7S8Hf2sqmtTeEos+LOLuiY5D3XtlYrUhceO5BB5eVIpTv4JYUrzRTyFutI8GRAJn6OluK1LM0LU87u9Exx+IuFWkHF936DZ6vpZB8IMgvWfJMERVQqN0Evcwpec85c+b8dSrI257stEXqg/ghWVd5UAovZD7O0/H8nfNVluEqLqHZWLNpDGAIOT8PsQriujQ3qVMXawHoxUmQHuq4L7QGSkonKG3O8Q4P1NKwCm3Ef2p6bch7Qz5n8pprVd74YtZpvtkw/xG9bUaHD0lpaiKzJupEvAgQDvEVbLmECXu7QP9WrXqJ772jGyODkkAyzScFhjjWsjbrfCIv/eGA2Vd5TDQJdUbnhY8ig+2z4bwqRJL5vqpUjxM3NHFLbRXz0GbuMGrnAyT4Jp4JKftuegCP4QKSmfo7I4w1D9kdhN33cPwkE3L1xaA9URu2vksCdwGr5uG9XQUa6S7S5XcraHsoKgTTl7nSAQLgBRK61SJsW1AEsAyodNenbfvjLMsuz+VdZMk2E+Ba3IeLpwreDXoRq8Dt0SCIIibgcRNEARBEARBEMRh/EP/EQTx65C/mr8J+dfc8zIeWObnkyoj+Hk/CBI3QRAAL/jxuO/Sxemsqo9wHx7iuIydEkjcBEEU+A+ikY9WpeHqrgAAAABJRU5ErkJggg==">
+<meta property="og:updated_time" content="2018-09-07T07:33:53.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello ccy">
+<meta name="twitter:title" content="Jack Chen的博客">
+<meta name="twitter:description" content="linux环境下安装jdk1.查看系统自带的jdk #RPM -qa|grep jdk若存在则删除jdk-1.7.0_67-fcs.x86_64 #rpm -e –nodeps jdk-1.7.0_67-fcs.x86_642.安装jdkrpm -ivh jdk-7u67-linux-x64.rpm3.配置环境变量vim /etc/profile.d/java.sh #set java envi">
+<meta name="twitter:image" content="data:image/png;base64,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">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -146,27 +151,17 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-ccy" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux环境下安装jdk" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      hello ccy
-    </h1>
-  
-
-        
-        <a href="/2018/08/31/hello-ccy/" class="archive-article-date">
-  	<time datetime="2018-08-31T00:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<h2 id="linux环境下安装jdk"><a href="#linux环境下安装jdk" class="headerlink" title="linux环境下安装jdk"></a>linux环境下安装jdk</h2><p>1.查看系统自带的jdk</p>
+<p>#RPM -qa|grep jdk<br>若存在则删除<br>jdk-1.7.0_67-fcs.x86_64</p>
+<p>#rpm -e –nodeps jdk-1.7.0_67-fcs.x86_64<br>2.安装jdk<br>rpm -ivh jdk-7u67-linux-x64.rpm<br>3.配置环境变量<br>vim /etc/profile.d/java.sh</p>
+<p>#set java enviroment<br>JAVA_HOME=/usr/java/jdk1.7.0_67<br>(undefined)<br>$ chmod -R 755 /etc/profile.d/java.sh<br>4.查看java -version<br><img src="data:image/png;base64,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" alt="Image"><br>安装成功</p>
+
       
 
       
@@ -245,7 +240,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/hello-ccy/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/07/linux环境下安装jdk/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,7 +254,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/07/Java爬取网络博客文章/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/07/linux环境下安装tomcat并配置tomcat日志分割/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -268,6 +263,11 @@
       </div>
     </a>
   
+  
+    <a href="/2018/09/07/JDK动态代理与CGLib动态代理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hello ccy | Jack Chen的博客</title>
+  <title>Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="web前端搬运工">
+  <meta name="description" content="linux下用命令导出mysql表数据由于数据库服务器是内网环境，只能通过linux跳板机连接，所以navicat工具暂时用不上。1.用Xshell工具连接跳板机2.再通过跳板机连接数据库服务器  ssh -p port ip输入密码进入到数据库服务器3.&amp;gt;cd /usr/bin进入到mysql的bin目录4.将数据库中的某一个表数据导入到home目录下的data.sql文件mysqldu">
+<meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello ccy">
-<meta property="og:url" content="http://yoursite.com/2018/08/31/hello-ccy/index.html">
+<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/linux下用命令导出mysql表数据/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
+<meta property="og:description" content="linux下用命令导出mysql表数据由于数据库服务器是内网环境，只能通过linux跳板机连接，所以navicat工具暂时用不上。1.用Xshell工具连接跳板机2.再通过跳板机连接数据库服务器  ssh -p port ip输入密码进入到数据库服务器3.&amp;gt;cd /usr/bin进入到mysql的bin目录4.将数据库中的某一个表数据导入到home目录下的data.sql文件mysqldu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T00:45:51.757Z">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/996357/201607/996357-20160729114322950-934855527.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/996357/201607/996357-20160729115130294-1512623985.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/996357/201607/996357-20160729115259278-1685856489.jpg">
+<meta property="og:updated_time" content="2018-09-07T07:33:53.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello ccy">
+<meta name="twitter:title" content="Jack Chen的博客">
+<meta name="twitter:description" content="linux下用命令导出mysql表数据由于数据库服务器是内网环境，只能通过linux跳板机连接，所以navicat工具暂时用不上。1.用Xshell工具连接跳板机2.再通过跳板机连接数据库服务器  ssh -p port ip输入密码进入到数据库服务器3.&amp;gt;cd /usr/bin进入到mysql的bin目录4.将数据库中的某一个表数据导入到home目录下的data.sql文件mysqldu">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/996357/201607/996357-20160729114322950-934855527.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -146,27 +153,17 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-ccy" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux下用命令导出mysql表数据" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      hello ccy
-    </h1>
-  
-
-        
-        <a href="/2018/08/31/hello-ccy/" class="archive-article-date">
-  	<time datetime="2018-08-31T00:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<h2 id="linux下用命令导出mysql表数据"><a href="#linux下用命令导出mysql表数据" class="headerlink" title="linux下用命令导出mysql表数据"></a>linux下用命令导出mysql表数据</h2><p>由于数据库服务器是内网环境，只能通过linux跳板机连接，所以navicat工具暂时用不上。<br>1.用Xshell工具连接跳板机<br><img src="https://images2015.cnblogs.com/blog/996357/201607/996357-20160729114322950-934855527.jpg" alt="Image"><br>2.再通过跳板机连接数据库服务器</p>
+<blockquote>
+<p>ssh -p port ip<br>输入密码<br>进入到数据库服务器<br>3.&gt;cd /usr/bin<br>进入到mysql的bin目录<br>4.将数据库中的某一个表数据导入到home目录下的data.sql文件<br>mysqldump -u root -p databaseName tableName &gt; /home/data.sql<br>mysqldump -u root -p -d databaseName tableName &gt; /home/data.sql    表示只导出表结构 -d表示只导出表结构<br>mysqldump -u root -p databaseName &gt; /home/data.sql    表示导出整个数据库包含数据<br><img src="https://images2015.cnblogs.com/blog/996357/201607/996357-20160729115130294-1512623985.jpg" alt="Image"><br>5.将服务器中的导出的sql文件通过scp传入到跳板机中<br>scp -r health_video.sql root@ip:port:/home/carySoft/<br>输入密码<br><img src="https://images2015.cnblogs.com/blog/996357/201607/996357-20160729115259278-1685856489.jpg" alt="Image"><br>6.再通过本地的ssh或者winscp将文件下载到本地磁盘</p>
+</blockquote>
+
       
 
       
@@ -245,7 +242,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/hello-ccy/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/07/linux下用命令导出mysql表数据/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,7 +256,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/07/Java爬取网络博客文章/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/07/mysqld.exe占比cpu 100% 解决方案/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -268,6 +265,11 @@
       </div>
     </a>
   
+  
+    <a href="/2018/09/07/linux配置网卡绑定/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

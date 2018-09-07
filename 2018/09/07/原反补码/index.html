@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hello ccy | Jack Chen的博客</title>
+  <title>Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="web前端搬运工">
+  <meta name="description" content="原反补码直接看代码12345678910111213141516171819202122232425262728293031323334353637383940414243 1  　　　　var a=5;            // 00000101; 2         console.log(a|2);    // 00000101 | 00000010 --&amp;gt;00000111---&amp;">
+<meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello ccy">
-<meta property="og:url" content="http://yoursite.com/2018/08/31/hello-ccy/index.html">
+<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/原反补码/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
+<meta property="og:description" content="原反补码直接看代码12345678910111213141516171819202122232425262728293031323334353637383940414243 1  　　　　var a=5;            // 00000101; 2         console.log(a|2);    // 00000101 | 00000010 --&amp;gt;00000111---&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T00:45:51.757Z">
+<meta property="og:updated_time" content="2018-09-07T07:33:53.602Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello ccy">
+<meta name="twitter:title" content="Jack Chen的博客">
+<meta name="twitter:description" content="原反补码直接看代码12345678910111213141516171819202122232425262728293031323334353637383940414243 1  　　　　var a=5;            // 00000101; 2         console.log(a|2);    // 00000101 | 00000010 --&amp;gt;00000111---&amp;">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -146,27 +149,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-ccy" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-原反补码" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      hello ccy
-    </h1>
-  
-
-        
-        <a href="/2018/08/31/hello-ccy/" class="archive-article-date">
-  	<time datetime="2018-08-31T00:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<h2 id="原反补码"><a href="#原反补码" class="headerlink" title="原反补码"></a>原反补码</h2><p>直接看代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> 1  　　　　var a=5;            // 00000101;</span><br><span class="line"> 2         console.log(a|2);    // 00000101 | 00000010 --&gt;00000111---&gt;7</span><br><span class="line"> 3         console.log(a&amp;2);    // 00000101 | 00000010 --&gt;00000000---&gt;0</span><br><span class="line"> 4         console.log(a^2);    // 00000101 | 00000010 --&gt;00000111---&gt;7</span><br><span class="line"> 5         a=-5;                // 原码:10000101; 反码:11111010; 补码:11111011;</span><br><span class="line"> 6                             //-4 原码:10000100; 反码:11111011; 补码:11111100; </span><br><span class="line"> 7         console.log(a|-4);    // 11111011 | 11111100 --&gt;11111111---&gt;11111110---&gt;10000001--&gt;-1</span><br><span class="line"> 8         console.log(a&amp;-4);    // 11111011 | 11111100 --&gt;11111000---&gt;11110111---&gt;10001000--&gt;-8</span><br><span class="line"> 9         console.log(a^-4);    // 11111011 | 11111100 --&gt;00000111--&gt;7</span><br><span class="line">10         </span><br><span class="line">11         var arr =[1];</span><br><span class="line">12         console.log(typeof <span class="string">""</span>);</span><br><span class="line">13         </span><br><span class="line">14         var a=1,c=1;</span><br><span class="line">15         var b=(++a)+a;//前增量：先自增再赋值</span><br><span class="line">16         var d=(c++)+c;//后增量：先赋值再自增</span><br><span class="line">17         console.log(b+<span class="string">","</span>+d); */</span><br><span class="line">18         var a = 0x1234;</span><br><span class="line">19         var b = 0x00ff;</span><br><span class="line">20         console.log(a&amp;b);</span><br><span class="line">21         console.log(a|b);</span><br><span class="line">22         console.log(a^b);</span><br><span class="line">23         //0001 0010 0011 0100</span><br><span class="line">24         //0000 0000 1111 1111</span><br><span class="line">25     //&amp;    //0000 0000 0011 0100</span><br><span class="line">26     //|    //0001 0010 1111 1111</span><br><span class="line">27     //^    //0001 0010 1100 1011</span><br><span class="line">28         </span><br><span class="line">29         //左移一位相当于乘以2 左移两位相当于乘以4 以此类推...</span><br><span class="line">30         console.log(7&lt;&lt;2);//0000 0111  &lt;&lt;2   0001 1100 --&gt;28</span><br><span class="line">31         //带符号右移相当于除以2(余数忽略) 左移两位相当于除以4 以此类推... (正数高位补0，负数高位补1)</span><br><span class="line">32         console.log(7&gt;&gt;2);//0000 0111  &gt;&gt;2   0000 0001 --&gt;1</span><br><span class="line">33         console.log(-9&gt;&gt;4);//1000 1001--&gt;1111 0110--&gt;1111 0111 &gt;&gt;4   1111 1111--&gt;1111 1110--&gt;1000 0001 --&gt;-1</span><br><span class="line">34         console.log(-1&gt;&gt;4);//1000 0001--&gt;1111 1110--&gt;1111 1111 &gt;&gt;4   1000 0111--&gt;1111 1110--&gt;1000 1001 --&gt;-1</span><br><span class="line">35         //无符号右移高位补0   32位</span><br><span class="line">36         console.log(-5&gt;&gt;&gt;3);</span><br><span class="line">37         //1000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">38         //1111 1111 1111 1111 1111 1111 1111 1010</span><br><span class="line">39         //1111 1111 1111 1111 1111 1111 1111 1011</span><br><span class="line">40         //1111 1111 1111 1111 1111 1111 1111 1111 &gt;&gt;&gt;4 </span><br><span class="line">41         //1111 1111 1111 1111 1111 1111 1111</span><br><span class="line">42         console.log(-1&gt;&gt;&gt;4);</span><br><span class="line">43         console.log(-1&gt;&gt;&gt;1);</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -245,7 +235,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/hello-ccy/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/07/原反补码/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,7 +249,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/07/Java爬取网络博客文章/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/07/原生js格式化json工具/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -268,6 +258,11 @@
       </div>
     </a>
   
+  
+    <a href="/2018/09/07/养成好习惯/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

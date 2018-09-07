@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hello ccy | Jack Chen的博客</title>
+  <title>Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="web前端搬运工">
+  <meta name="description" content="linux配置网卡绑定1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em32.配置ifcfg-bond0、em2、em33.修改配置文件/etc/modprcode.d/disk.conf底部添加   slias bond0 bonding　　　　   options bonding mode=0 miimon=100vi /etc/rc.d/rc.local底部添加">
+<meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello ccy">
-<meta property="og:url" content="http://yoursite.com/2018/08/31/hello-ccy/index.html">
+<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/linux配置网卡绑定/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
+<meta property="og:description" content="linux配置网卡绑定1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em32.配置ifcfg-bond0、em2、em33.修改配置文件/etc/modprcode.d/disk.conf底部添加   slias bond0 bonding　　　　   options bonding mode=0 miimon=100vi /etc/rc.d/rc.local底部添加">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T00:45:51.757Z">
+<meta property="og:updated_time" content="2018-09-07T07:33:53.602Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello ccy">
+<meta name="twitter:title" content="Jack Chen的博客">
+<meta name="twitter:description" content="linux配置网卡绑定1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em32.配置ifcfg-bond0、em2、em33.修改配置文件/etc/modprcode.d/disk.conf底部添加   slias bond0 bonding　　　　   options bonding mode=0 miimon=100vi /etc/rc.d/rc.local底部添加">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -146,27 +149,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-ccy" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux配置网卡绑定" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      hello ccy
-    </h1>
-  
-
-        
-        <a href="/2018/08/31/hello-ccy/" class="archive-article-date">
-  	<time datetime="2018-08-31T00:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<h2 id="linux配置网卡绑定"><a href="#linux配置网卡绑定" class="headerlink" title="linux配置网卡绑定"></a>linux配置网卡绑定</h2><p>1.确定好要绑定的那两个网口<br>我这边要绑定的是两个业务口  em2、em3<br>2.配置ifcfg-bond0、em2、em3<br>3.修改配置文件/etc/modprcode.d/disk.conf<br>底部添加   slias bond0 bonding<br>　　　　   options bonding mode=0 miimon=100<br>vi /etc/rc.d/rc.local<br>底部添加<br>　　　　　ifenslave bond0 em1 em2<br>　　　　　route add default gw 10.10.10.1<br>4.重启网络 service network restart</p>
+
       
 
       
@@ -245,7 +235,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/hello-ccy/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/07/linux配置网卡绑定/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,7 +249,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/07/Java爬取网络博客文章/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/07/linux下用命令导出mysql表数据/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -268,6 +258,11 @@
       </div>
     </a>
   
+  
+    <a href="/2018/09/07/linux环境下安装tomcat并配置tomcat日志分割/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
