@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jack Chen的博客</title>
+  <title>mysql启动报错The server quit without updating PID file | Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mysql启动报错The server quit without updating PID file1.root#vim /etc/my.cnf修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径socket=/var/lib/mysql/mysql.sock2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_l">
+  <meta name="description" content="1.root#vim /etc/my.cnf修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径socket=/var/lib/mysql/mysql.sock2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_logfile1、ibdata1（主要是这三个文件）拷贝到新的mysql目录并设置用户和用户组为my">
 <meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:title" content="mysql启动报错The server quit without updating PID file">
 <meta property="og:url" content="http://yoursite.com/2018/09/07/mysql启动报错The server quit without updating PID file/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
-<meta property="og:description" content="mysql启动报错The server quit without updating PID file1.root#vim /etc/my.cnf修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径socket=/var/lib/mysql/mysql.sock2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_l">
+<meta property="og:description" content="1.root#vim /etc/my.cnf修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径socket=/var/lib/mysql/mysql.sock2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_logfile1、ibdata1（主要是这三个文件）拷贝到新的mysql目录并设置用户和用户组为my">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/996357/201610/996357-20161013212348515-1860352874.png">
-<meta property="og:updated_time" content="2018-09-07T07:33:53.601Z">
+<meta property="og:updated_time" content="2018-09-07T08:18:12.832Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jack Chen的博客">
-<meta name="twitter:description" content="mysql启动报错The server quit without updating PID file1.root#vim /etc/my.cnf修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径socket=/var/lib/mysql/mysql.sock2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_l">
+<meta name="twitter:title" content="mysql启动报错The server quit without updating PID file">
+<meta name="twitter:description" content="1.root#vim /etc/my.cnf修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径socket=/var/lib/mysql/mysql.sock2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_logfile1、ibdata1（主要是这三个文件）拷贝到新的mysql目录并设置用户和用户组为my">
 <meta name="twitter:image" content="https://images2015.cnblogs.com/blog/996357/201610/996357-20161013212348515-1860352874.png">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
@@ -154,10 +154,25 @@
             <article id="post-mysql启动报错The server quit without updating PID file" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql启动报错The server quit without updating PID file
+    </h1>
+  
+
+        
+        <a href="/2018/09/07/mysql启动报错The server quit without updating PID file/" class="archive-article-date">
+  	<time datetime="2018-09-07T07:37:30.815Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="mysql启动报错The-server-quit-without-updating-PID-file"><a href="#mysql启动报错The-server-quit-without-updating-PID-file" class="headerlink" title="mysql启动报错The server quit without updating PID file"></a>mysql启动报错The server quit without updating PID file</h2><p><img src="https://images2015.cnblogs.com/blog/996357/201610/996357-20161013212348515-1860352874.png" alt="Image"><br>1.root#vim /etc/my.cnf<br>修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径<br>socket=/var/lib/mysql/mysql.sock<br>2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_logfile1、ibdata1（主要是这三个文件）拷贝到新的mysql目录并设置用户和用户组为mysql:mysql<br>root#cp -r /home/mysqlData/mysql/需要的文件或文件夹  /var/lib/mysql/<br>root#chown -hR mysql:mysql /var/lib/mysql<br>root#ps -ef|grep mysql       –查看mysql的进程  如果有则kill<br>root#service mysql start     –启动mysql<br>root#mysql -u root -p        –进入mysql客户端<br>mysql&gt;set password for ‘root‘@’%’=password(‘newpassword’);<br>mysql&gt;flush privileges;<br>解决问题！</p>
+        <a id="more"></a> 
+<p><img src="https://images2015.cnblogs.com/blog/996357/201610/996357-20161013212348515-1860352874.png" alt="Image"><br>1.root#vim /etc/my.cnf<br>修改datadir=/var/lib/mysql     – linux中mysql安装的默认路径<br>socket=/var/lib/mysql/mysql.sock<br>2.将之前数据库安装目录中需要的数据库（需要还原的数据库）、ib_logfile0、ib_logfile1、ibdata1（主要是这三个文件）拷贝到新的mysql目录并设置用户和用户组为mysql:mysql<br>root#cp -r /home/mysqlData/mysql/需要的文件或文件夹  /var/lib/mysql/<br>root#chown -hR mysql:mysql /var/lib/mysql<br>root#ps -ef|grep mysql       –查看mysql的进程  如果有则kill<br>root#service mysql start     –启动mysql<br>root#mysql -u root -p        –进入mysql客户端<br>mysql&gt;set password for ‘root‘@’%’=password(‘newpassword’);<br>mysql&gt;flush privileges;<br>解决问题！</p>
 
       
 
@@ -255,14 +270,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          NoClassDefFoundError
         
       </div>
     </a>
   
   
     <a href="/2018/09/07/mysqld.exe占比cpu 100% 解决方案/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">mysqld.exe占比cpu 100% 解决方案</div>
       <i class="icon-circle-right"></i>
     </a>
   

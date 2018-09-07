@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jack Chen的博客</title>
+  <title>JDK动态代理与CGLib动态代理 | Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JDK动态代理与CGLib动态代理JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。JDK的动态代理主要涉及到java.lang.reflect包中的两个类：Proxy(c)和InvocationHandler(i),InvocationHandler：是一个接口，可以通过实现该接口定义的横切逻辑并通过反射机制调用目标类代码实现">
+  <meta name="description" content="JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。">
 <meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:title" content="JDK动态代理与CGLib动态代理">
 <meta property="og:url" content="http://yoursite.com/2018/09/07/JDK动态代理与CGLib动态代理/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
-<meta property="og:description" content="JDK动态代理与CGLib动态代理JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。JDK的动态代理主要涉及到java.lang.reflect包中的两个类：Proxy(c)和InvocationHandler(i),InvocationHandler：是一个接口，可以通过实现该接口定义的横切逻辑并通过反射机制调用目标类代码实现">
+<meta property="og:description" content="JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-07T07:33:53.601Z">
+<meta property="og:updated_time" content="2018-09-07T08:18:12.831Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jack Chen的博客">
-<meta name="twitter:description" content="JDK动态代理与CGLib动态代理JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。JDK的动态代理主要涉及到java.lang.reflect包中的两个类：Proxy(c)和InvocationHandler(i),InvocationHandler：是一个接口，可以通过实现该接口定义的横切逻辑并通过反射机制调用目标类代码实现">
+<meta name="twitter:title" content="JDK动态代理与CGLib动态代理">
+<meta name="twitter:description" content="JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -152,10 +152,26 @@
             <article id="post-JDK动态代理与CGLib动态代理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JDK动态代理与CGLib动态代理
+    </h1>
+  
+
+        
+        <a href="/2018/09/07/JDK动态代理与CGLib动态代理/" class="archive-article-date">
+  	<time datetime="2018-09-07T07:37:30.797Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="JDK动态代理与CGLib动态代理"><a href="#JDK动态代理与CGLib动态代理" class="headerlink" title="JDK动态代理与CGLib动态代理"></a>JDK动态代理与CGLib动态代理</h2><p>JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。<br>JDK的动态代理主要涉及到java.lang.reflect包中的两个类：Proxy(c)和InvocationHandler(i),<br>InvocationHandler：是一个接口，可以通过实现该接口定义的横切逻辑并通过反射机制调用目标类代码实现横切逻辑和业务逻辑编织在一起<br>Proxy：利用InvocationHandler动态创建一个符合某一接口的实例生成目标类的代理对象。<br>CGLib采用非常底层的字节码技术，可以为一个类（该目标类不能被final，private修饰）创建子类并在子类中采用方法拦截的技术拦截所有父类方法的调用，并顺势织入横切逻辑。</p>
+        <p>JDK1.3以后java提供了动态代理技术，允许开发者在运行期创建接口的代理实例，动态代理是实现AOP的绝好底层技术。</p>
+<a id="more"></a> 
+<p>JDK的动态代理主要涉及到java.lang.reflect包中的两个类：Proxy(c)和InvocationHandler(i),<br>InvocationHandler：是一个接口，可以通过实现该接口定义的横切逻辑并通过反射机制调用目标类代码实现横切逻辑和业务逻辑编织在一起<br>Proxy：利用InvocationHandler动态创建一个符合某一接口的实例生成目标类的代理对象。<br>CGLib采用非常底层的字节码技术，可以为一个类（该目标类不能被final，private修饰）创建子类并在子类中采用方法拦截的技术拦截所有父类方法的调用，并顺势织入横切逻辑。</p>
 <p>CGLib所创建的动态代理对象的性能依旧比JDK的所创建的代理对象的性能高不少（约10倍），但CGLib在创建代理对象时所花费的时间却比JDK动态代理高（约8倍），所以对于singleton的代理对象或者具有实例池的代理，因为无须频繁创建代理对象，所以比较适合用CGLib动态代理技术，反之适合用JDK动态代理技术。</p>
 
       
@@ -254,14 +270,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          linux环境下安装jdk
         
       </div>
     </a>
   
   
     <a href="/2018/09/07/JavaScript异步编程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">JavaScript异步编程</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jack Chen的博客</title>
+  <title>linux配置网卡绑定 | Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="linux配置网卡绑定1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em32.配置ifcfg-bond0、em2、em33.修改配置文件/etc/modprcode.d/disk.conf底部添加   slias bond0 bonding　　　　   options bonding mode=0 miimon=100vi /etc/rc.d/rc.local底部添加">
+  <meta name="description" content="1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em3">
 <meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:title" content="linux配置网卡绑定">
 <meta property="og:url" content="http://yoursite.com/2018/09/07/linux配置网卡绑定/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
-<meta property="og:description" content="linux配置网卡绑定1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em32.配置ifcfg-bond0、em2、em33.修改配置文件/etc/modprcode.d/disk.conf底部添加   slias bond0 bonding　　　　   options bonding mode=0 miimon=100vi /etc/rc.d/rc.local底部添加">
+<meta property="og:description" content="1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em3">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-07T07:33:53.602Z">
+<meta property="og:updated_time" content="2018-09-07T08:18:12.831Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jack Chen的博客">
-<meta name="twitter:description" content="linux配置网卡绑定1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em32.配置ifcfg-bond0、em2、em33.修改配置文件/etc/modprcode.d/disk.conf底部添加   slias bond0 bonding　　　　   options bonding mode=0 miimon=100vi /etc/rc.d/rc.local底部添加">
+<meta name="twitter:title" content="linux配置网卡绑定">
+<meta name="twitter:description" content="1.确定好要绑定的那两个网口我这边要绑定的是两个业务口  em2、em3">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -152,10 +152,26 @@
             <article id="post-linux配置网卡绑定" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux配置网卡绑定
+    </h1>
+  
+
+        
+        <a href="/2018/09/07/linux配置网卡绑定/" class="archive-article-date">
+  	<time datetime="2018-09-07T07:37:30.803Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="linux配置网卡绑定"><a href="#linux配置网卡绑定" class="headerlink" title="linux配置网卡绑定"></a>linux配置网卡绑定</h2><p>1.确定好要绑定的那两个网口<br>我这边要绑定的是两个业务口  em2、em3<br>2.配置ifcfg-bond0、em2、em3<br>3.修改配置文件/etc/modprcode.d/disk.conf<br>底部添加   slias bond0 bonding<br>　　　　   options bonding mode=0 miimon=100<br>vi /etc/rc.d/rc.local<br>底部添加<br>　　　　　ifenslave bond0 em1 em2<br>　　　　　route add default gw 10.10.10.1<br>4.重启网络 service network restart</p>
+        <p>1.确定好要绑定的那两个网口<br>我这边要绑定的是两个业务口  em2、em3</p>
+<a id="more"></a> 
+<p>2.配置ifcfg-bond0、em2、em3<br>3.修改配置文件/etc/modprcode.d/disk.conf<br>底部添加   slias bond0 bonding<br>　　　　   options bonding mode=0 miimon=100<br>vi /etc/rc.d/rc.local<br>底部添加<br>　　　　　ifenslave bond0 em1 em2<br>　　　　　route add default gw 10.10.10.1<br>4.重启网络 service network restart</p>
 
       
 
@@ -253,14 +269,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          linux下用命令导出mysql表数据
         
       </div>
     </a>
   
   
     <a href="/2018/09/07/linux环境下安装tomcat并配置tomcat日志分割/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">linux环境下安装tomcat并配置tomcat日志分割</div>
       <i class="icon-circle-right"></i>
     </a>
   

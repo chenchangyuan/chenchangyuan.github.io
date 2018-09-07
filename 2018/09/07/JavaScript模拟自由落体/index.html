@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jack Chen的博客</title>
+  <title>JavaScript模拟自由落体 | Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript模拟自由落体1.效果图 2.实现分析利用Canvas画圆球、地面； 1.下落过程物理知识回顾，物体下落过程（不计损耗）由重力势能转换成动能重力势能 Ep = mgh动能 　　Ek = (1/2)mv^2速度右0增加至gt此间需要计算浏览器每次渲染的圆球y坐标y = (1/2)gt^2 2.反弹过程动能转化成重力势能速度是逐渐减少直至为0本打算设置 y = (1/2)g(t-t">
+  <meta name="description" content="1.效果图">
 <meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:title" content="JavaScript模拟自由落体">
 <meta property="og:url" content="http://yoursite.com/2018/09/07/JavaScript模拟自由落体/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
-<meta property="og:description" content="JavaScript模拟自由落体1.效果图 2.实现分析利用Canvas画圆球、地面； 1.下落过程物理知识回顾，物体下落过程（不计损耗）由重力势能转换成动能重力势能 Ep = mgh动能 　　Ek = (1/2)mv^2速度右0增加至gt此间需要计算浏览器每次渲染的圆球y坐标y = (1/2)gt^2 2.反弹过程动能转化成重力势能速度是逐渐减少直至为0本打算设置 y = (1/2)g(t-t">
+<meta property="og:description" content="1.效果图">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/996357/201808/996357-20180828130247213-1628743318.gif">
-<meta property="og:updated_time" content="2018-09-07T07:33:53.607Z">
+<meta property="og:updated_time" content="2018-09-07T08:18:12.837Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jack Chen的博客">
-<meta name="twitter:description" content="JavaScript模拟自由落体1.效果图 2.实现分析利用Canvas画圆球、地面； 1.下落过程物理知识回顾，物体下落过程（不计损耗）由重力势能转换成动能重力势能 Ep = mgh动能 　　Ek = (1/2)mv^2速度右0增加至gt此间需要计算浏览器每次渲染的圆球y坐标y = (1/2)gt^2 2.反弹过程动能转化成重力势能速度是逐渐减少直至为0本打算设置 y = (1/2)g(t-t">
+<meta name="twitter:title" content="JavaScript模拟自由落体">
+<meta name="twitter:description" content="1.效果图">
 <meta name="twitter:image" content="https://images2018.cnblogs.com/blog/996357/201808/996357-20180828130247213-1628743318.gif">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
@@ -154,10 +154,25 @@
             <article id="post-JavaScript模拟自由落体" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript模拟自由落体
+    </h1>
+  
+
+        
+        <a href="/2018/09/07/JavaScript模拟自由落体/" class="archive-article-date">
+  	<time datetime="2018-09-07T07:37:30.788Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="JavaScript模拟自由落体"><a href="#JavaScript模拟自由落体" class="headerlink" title="JavaScript模拟自由落体"></a>JavaScript模拟自由落体</h2><h1 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.效果图</h1><p><img src="https://images2018.cnblogs.com/blog/996357/201808/996357-20180828130247213-1628743318.gif" alt="Image"></p>
+        <h1 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.效果图</h1><p><img src="https://images2018.cnblogs.com/blog/996357/201808/996357-20180828130247213-1628743318.gif" alt="Image"></p>
+<a id="more"></a> 
 <h1 id="2-实现分析"><a href="#2-实现分析" class="headerlink" title="2.实现分析"></a>2.实现分析</h1><p>利用Canvas画圆球、地面；</p>
 <h2 id="1-下落过程"><a href="#1-下落过程" class="headerlink" title="1.下落过程"></a>1.下落过程</h2><p>物理知识回顾，物体下落过程（不计损耗）由重力势能转换成动能<br>重力势能 Ep = mgh<br>动能 　　Ek = (1/2)mv^2<br>速度右0增加至gt<br>此间需要计算浏览器每次渲染的圆球y坐标<br>y = (1/2)gt^2</p>
 <h2 id="2-反弹过程"><a href="#2-反弹过程" class="headerlink" title="2.反弹过程"></a>2.反弹过程</h2><p>动能转化成重力势能<br>速度是逐渐减少直至为0<br>本打算设置 y = (1/2)g(t-t1)^2，t1为下落或者反弹消耗的时长<br>但是实际呈现的效果却不尽人意，应该是反弹位移计算有误，经反复思考无果（若哪位大拿有更好的实现方式欢迎评论告知）<br>所以决定将下落过程的位移保存在一个数组里，待反弹时再逐一取出赋值</p>
@@ -261,14 +276,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          JavaScript实现iphone时钟
         
       </div>
     </a>
   
   
     <a href="/2018/09/07/JavaScript跨域解决方式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">JavaScript跨域解决方式</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jack Chen的博客</title>
+  <title>linux环境下安装tomcat并配置tomcat日志分割 | Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="linux环境下安装tomcat并配置tomcat日志分割1.直接解压apache-tomcat-7.0.69.tar.gz存放在/home目录下根据需要自定义tomcat名称mv apache-tomcat-7.0.69 Tomcat72.解压cronolog-1.6.2.tar.gztar -zxvf cronolog-1.6.2.tar.gz./configure  如果此步骤报错则根据提">
+  <meta name="description" content="1.直接解压apache-tomcat-7.0.69.tar.gz存放在/home目录下">
 <meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jack Chen的博客">
+<meta property="og:title" content="linux环境下安装tomcat并配置tomcat日志分割">
 <meta property="og:url" content="http://yoursite.com/2018/09/07/linux环境下安装tomcat并配置tomcat日志分割/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
-<meta property="og:description" content="linux环境下安装tomcat并配置tomcat日志分割1.直接解压apache-tomcat-7.0.69.tar.gz存放在/home目录下根据需要自定义tomcat名称mv apache-tomcat-7.0.69 Tomcat72.解压cronolog-1.6.2.tar.gztar -zxvf cronolog-1.6.2.tar.gz./configure  如果此步骤报错则根据提">
+<meta property="og:description" content="1.直接解压apache-tomcat-7.0.69.tar.gz存放在/home目录下">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-07T07:33:53.601Z">
+<meta property="og:updated_time" content="2018-09-07T08:18:12.831Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jack Chen的博客">
-<meta name="twitter:description" content="linux环境下安装tomcat并配置tomcat日志分割1.直接解压apache-tomcat-7.0.69.tar.gz存放在/home目录下根据需要自定义tomcat名称mv apache-tomcat-7.0.69 Tomcat72.解压cronolog-1.6.2.tar.gztar -zxvf cronolog-1.6.2.tar.gz./configure  如果此步骤报错则根据提">
+<meta name="twitter:title" content="linux环境下安装tomcat并配置tomcat日志分割">
+<meta name="twitter:description" content="1.直接解压apache-tomcat-7.0.69.tar.gz存放在/home目录下">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -152,10 +152,26 @@
             <article id="post-linux环境下安装tomcat并配置tomcat日志分割" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux环境下安装tomcat并配置tomcat日志分割
+    </h1>
+  
+
+        
+        <a href="/2018/09/07/linux环境下安装tomcat并配置tomcat日志分割/" class="archive-article-date">
+  	<time datetime="2018-09-07T07:37:30.802Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="linux环境下安装tomcat并配置tomcat日志分割"><a href="#linux环境下安装tomcat并配置tomcat日志分割" class="headerlink" title="linux环境下安装tomcat并配置tomcat日志分割"></a>linux环境下安装tomcat并配置tomcat日志分割</h2><p>1.直接解压apache-tomcat-7.0.69.tar.gz<br>存放在/home目录下<br>根据需要自定义tomcat名称<br>mv apache-tomcat-7.0.69 Tomcat7<br>2.解压cronolog-1.6.2.tar.gz<br>tar -zxvf cronolog-1.6.2.tar.gz<br>./configure  如果此步骤报错则根据提示对应解决，一般情况下是系统没有安装gcc<br>make<br>make install<br>3.编辑Tomcat7/bin/catalina.sh<br>vim catalina.sh<br>文件前几行加入<br>export JAVA_HOME=/usr/java/jdk1.7.0_67<br>export CATALINA_BASE=/home/Tomcat7<br>export CATALINA_HOME=/home/Tomcat7<br>export CATALINA_TMPDIR=/home/Tomcat7/tmp<br> 大约377行 注释掉</p>
+        <p>1.直接解压apache-tomcat-7.0.69.tar.gz<br>存放在/home目录下</p>
+<a id="more"></a> 
+<p>根据需要自定义tomcat名称<br>mv apache-tomcat-7.0.69 Tomcat7<br>2.解压cronolog-1.6.2.tar.gz<br>tar -zxvf cronolog-1.6.2.tar.gz<br>./configure  如果此步骤报错则根据提示对应解决，一般情况下是系统没有安装gcc<br>make<br>make install<br>3.编辑Tomcat7/bin/catalina.sh<br>vim catalina.sh<br>文件前几行加入<br>export JAVA_HOME=/usr/java/jdk1.7.0_67<br>export CATALINA_BASE=/home/Tomcat7<br>export CATALINA_HOME=/home/Tomcat7<br>export CATALINA_TMPDIR=/home/Tomcat7/tmp<br> 大约377行 注释掉</p>
 <p>#touch “$CATALINA_OUT”<br>392、401行用| /usr/local/sbin/cronolog “$CATALINA_BASE”/logs/catalina.%Y-%m-%d.out &gt;&gt; /dev/null 2&gt;&amp;1 &amp; 替换&gt;&gt; “$CATALINA_OUT” 2&gt;&amp;1 “&amp;”<br>保存退出<br>修改防火墙端口重启<br>启动tomcat 并访问 出现logo则配置成功</p>
 
       
@@ -254,14 +270,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          linux配置网卡绑定
         
       </div>
     </a>
   
   
     <a href="/2018/09/07/linux环境下安装jdk/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">linux环境下安装jdk</div>
       <i class="icon-circle-right"></i>
     </a>
   
