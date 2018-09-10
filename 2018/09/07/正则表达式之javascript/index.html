@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>正则表达式之javascript | Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.正则表达式的定义(undefined)var pattern = new RegExp(“s$”); &amp;lt;=&amp;gt; var pattern = /s$/;">
+  <meta name="description" content="1.正则表达式的定义 描述字符模式的对象，JavaScript的RepExp类表示正则表达式var pattern = new RegExp(“s$”); &amp;lt;=&amp;gt; var pattern = /s$/;">
 <meta name="keywords" content="web前端搬运工">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式之javascript">
 <meta property="og:url" content="http://yoursite.com/2018/09/07/正则表达式之javascript/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
-<meta property="og:description" content="1.正则表达式的定义(undefined)var pattern = new RegExp(“s$”); &amp;lt;=&amp;gt; var pattern = /s$/;">
+<meta property="og:description" content="1.正则表达式的定义 描述字符模式的对象，JavaScript的RepExp类表示正则表达式var pattern = new RegExp(“s$”); &amp;lt;=&amp;gt; var pattern = /s$/;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-07T08:18:12.833Z">
+<meta property="og:updated_time" content="2018-09-10T01:39:11.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式之javascript">
-<meta name="twitter:description" content="1.正则表达式的定义(undefined)var pattern = new RegExp(“s$”); &amp;lt;=&amp;gt; var pattern = /s$/;">
+<meta name="twitter:description" content="1.正则表达式的定义 描述字符模式的对象，JavaScript的RepExp类表示正则表达式var pattern = new RegExp(“s$”); &amp;lt;=&amp;gt; var pattern = /s$/;">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -169,9 +169,73 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.正则表达式的定义<br>(undefined)<br>var pattern = new RegExp(“s$”); &lt;=&gt; var pattern = /s$/;</p>
+        <p>1.正则表达式的定义</p>
+<p>描述字符模式的对象，JavaScript的RepExp类表示正则表达式<br>var pattern = new RegExp(“s$”); &lt;=&gt; var pattern = /s$/;</p>
 <a id="more"></a> 
-<p>2.直接量字符<br>(undefined)<br>3.字符类<br>(undefined)<br>4.重复<br>(undefined)<br>example:<br>(undefined)<br>5.非贪婪<br>(undefined)<br>example:<br>(undefined)<br>6.选择分组引用<br>(undefined)<br>7.锚字符<br>(undefined)<br>8.修饰符<br>(undefined)<br>9.用于模式匹配的String方法<br>(undefined)<br>10.RegExp对象<br>(undefined)<br>RegExp属性<br>(undefined)<br>RegExp方法<br>(undefined)</p>
+<p>2.直接量字符</p>
+<p>\o NUL字符</p>
+<p>\t 制表符</p>
+<p>\n 换行符</p>
+<p>\v 垂直制表符</p>
+<p>\f 换页符</p>
+<p>\r 回车<br>3.字符类</p>
+<p>[…] 方括号内的任意字符</p>
+<p>[^…] 不在方括号内的任意字符</p>
+<p>. 除换行符和其他Unicode行终止符之外的任意字符</p>
+<p>\w 任何ASCII字符组成的单词，等价于[a-zA-Z0-9]</p>
+<p>\W 任何非ASCII字符组成的单词，等价于[^a-zA-Z0-9]</p>
+<p>\s 任何Unicode空白符</p>
+<p>\S 任何非Unicode空白符</p>
+<p>\d 任何ASCII数字，等价于[0-9]</p>
+<p>\D 任何非ASCII数字，等价于[^0-9]</p>
+<p>[\b] 退格直接量<br>4.重复</p>
+<p>{n,m} 匹配前一项至少n次，但不超过m次</p>
+<p>{n,} 匹配前一项n次或者更多次</p>
+<p>{n} 匹配前一项n次</p>
+<p>? 匹配前一项0次或者1次，等价于{0,1}<br>example:</p>
+<p>/\d{2,4}/ //匹配2~4个数字</p>
+<p>/\w{3}\d?/ //匹配3个单词加一个可选数字</p>
+<p>/\s+java\s+/ //匹配java单词前后至少一个空格</p>
+<p>/[^(]*/ //匹配以一个或者多个左括号开始的字符<br>5.非贪婪</p>
+<p>重复为尽可能的多匹配，非贪婪模式是尽可能的少匹配</p>
+<p>??</p>
+<p>+?</p>
+<p>*?<br>example:</p>
+<p>{1,5}? //尽可能的匹配一个<br>6.选择分组引用</p>
+<p>| 选择，匹配的是该符号左边的子表达式或者右边的子表达式</p>
+<p>(…) 组合，将几个项组合为一个单元，这个单元可通过* + ？ | 等符号加以修饰，而且记住和这个组合相匹配的字符串以供此后的引用使用</p>
+<p>(?:…) 只组合，把项组合到一个单元，但不记忆与改组相匹配的字符</p>
+<p>\n 和第n个分组第一次匹配的字符相匹配，组是圆括号中的子表达式（也可能是嵌套的），组索引是从左到右的左括号数，(?: 形式的分组不编码<br>7.锚字符</p>
+<p>^ 匹配字符串的开头，在多行检索中匹配一行的开头</p>
+<p>$ 匹配字符串的结尾，在多行检索中匹配一行的结尾</p>
+<p>\b 匹配一个单词的边界，就是位于\w与\W之间的位置</p>
+<p>\B 匹配非单词边界的位置</p>
+<p>(?=p) 零宽正向先行断言，要求接下来的字符都与p匹配，但不能包括匹配p的那些字符</p>
+<p>(?!=p) 零宽负向先行断言，要求接下来的字符都不与p匹配<br>8.修饰符</p>
+<p>i 不区分大小写</p>
+<p>g 全局匹配</p>
+<p>m 多行匹配模式<br>9.用于模式匹配的String方法</p>
+<p>search()</p>
+<p>“javascript”.search(/script/i); 如果匹配则返回对应索引，否则返回-1</p>
+<p>replace()</p>
+<p>text.replace(/javascript/gi,”JavaScript”); 检索和替换</p>
+<p>match()</p>
+<p>“1 plus 2 equals 3”.match(/\d+/g); 返回[“1”,”2”,”3”]</p>
+<p>split()</p>
+<p>“1,2,3,4,5”.split(/\s<br>/);返回[“1”,”2”,”3”,”4”,”5”]<br>10.RegExp对象</p>
+<p>RegExp第一个参数包含正则表达式的主体部分，也就是直接量中两条斜线之间的文本，不论是字符串直接量还是正则表达式都使用  字符作为转义字符的前缀，</p>
+<p>因此当给RegExp()传入一个字符串表述正则表达式时，必须将  替换成 \</p>
+<p>第二个参数是可选的，只能传 g i m,或者它们的组合</p>
+<p>var zipcode = new RegExp(“\d{5}”,”g”);<br>RegExp属性</p>
+<p>source：是一个只读字符串，包含正则表达式的文本</p>
+<p>global：是一个只读的布尔值，用以说明这个正则表达式是否带有修饰符g</p>
+<p>ignoreCase：是一个只读的布尔值，用以说明正则表达式是否带有修饰符i</p>
+<p>multiline：是一个只读的布尔值，用以说明正则表达式是否带有修饰符m</p>
+<p>lastIndex：是一个可读/写的整数，如果匹配模式带有g修饰符，这个属性存储在整个字符串的下一次检索的开始位置，会被exec(),test()方法用到<br>RegExp方法</p>
+<p>exec()</p>
+<p>执行字符串的匹配检索，类似String.match()，都会返回一个数组</p>
+<p>test()</p>
+<p>当调用exec方法返回不为null则调用test方法返回为true</p>
 
       
 

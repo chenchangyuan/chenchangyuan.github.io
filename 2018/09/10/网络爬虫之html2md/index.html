@@ -6,16 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/9 | Jack Chen的博客</title>
+  <title>网络爬虫之html2md | Jack Chen的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="web前端搬运工">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jack Chen的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/09/page/3/index.html">
+  <meta name="description" content="前言上周利用java爬取的网络文章，一直未能利用java实现html转化md，整整一周时间才得以解决。">
+<meta name="keywords" content="web前端搬运工">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络爬虫之html2md">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/网络爬虫之html2md/index.html">
 <meta property="og:site_name" content="Jack Chen的博客">
+<meta property="og:description" content="前言上周利用java爬取的网络文章，一直未能利用java实现html转化md，整整一周时间才得以解决。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/996357/201809/996357-20180908001920536-747407913.png">
+<meta property="og:updated_time" content="2018-09-10T01:39:11.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jack Chen的博客">
+<meta name="twitter:title" content="网络爬虫之html2md">
+<meta name="twitter:description" content="前言上周利用java爬取的网络文章，一直未能利用java实现html转化md，整整一周时间才得以解决。">
+<meta name="twitter:image" content="https://images2018.cnblogs.com/blog/996357/201809/996357-20180908001920536-747407913.png">
   
     <link rel="alternative" href="/atom.xml" title="Jack Chen的博客" type="application/atom+xml">
   
@@ -145,268 +151,182 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-网络爬虫之html2md" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络爬虫之html2md
+    </h1>
+  
+
+        
+        <a href="/2018/09/10/网络爬虫之html2md/" class="archive-article-date">
+  	<time datetime="2018-09-10T01:43:56.260Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上周利用java爬取的网络文章，一直未能利用java实现html转化md，整整一周时间才得以解决。</p>
+<a id="more"></a> 
+<p>虽然本人的博客文章数量不多，但是绝不齿于手动转换，毕竟手动转换浪费时间，把那些时间用来做些别的也是好的。</p>
+<h1 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h1><h2 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h2><p>一开始的思路是想着用java来解析html，想着各种标签解析、符号解析、正则替换等等，决定在<br>(<a href="https://github.com" target="_blank" rel="noopener">https://github.com</a>)<br>上搜索一波，果然是有前辈实现过，顿时欣喜若狂；<br>下载后如下图<br><img src="https://images2018.cnblogs.com/blog/996357/201809/996357-20180908001920536-747407913.png" alt="Image"><br>可利用htmlToHexoMd方法测试运行<br>可能作者是在linux服务器上定义的路径，我测试的时候一直提示路径问题，结果被迫更改转化的路径代码，<br>调试运行后生成的md文件，本地启动hexo服务，上传刚刚生成md文件，网页浏览，不满，弃之。</p>
+<h2 id="NodeJS实现"><a href="#NodeJS实现" class="headerlink" title="NodeJS实现"></a>NodeJS实现</h2><p>为何突然会选择NodeJS来实现，刚好最近在看node书籍，里面有提到node爬虫，解析爬取的内容，书中提到利用<br>(<a href="https://cnodejs.org/topic/5203a71844e76d216a727d2e" target="_blank" rel="noopener">https://cnodejs.org/topic/5203a71844e76d216a727d2e</a>)<br>模块，遂果断浏览其api文档，cheerio其实就是jquery的翻版，这下可方便了，心中大喜。</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><p>实现单个转化<br>自定义解析<br>实现批量转化</p>
+<h1 id="难点分析"><a href="#难点分析" class="headerlink" title="难点分析"></a>难点分析</h1><p>自定义解析是比较头疼的事情，必须要分析需要转化的html的格式，需要读取的内容，本人对h1,h2,h3,div,img,a标签做了处理，可自行扩展<br>html解析代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">　　　　　　　<span class="keyword">if</span>(<span class="string">'p'</span> === name)&#123;</span><br><span class="line">    <span class="keyword">if</span>(e_children.type === <span class="string">'text'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(e.children.length &gt; 1)&#123;</span><br><span class="line">            <span class="keyword">for</span>(var j=0,c_len=e.children.length;j&lt;c_len;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(e.children[j][<span class="string">'name'</span>] === <span class="string">'a'</span>) writeData = writeData + <span class="string">'('</span>+e.children[j].attribs.href + <span class="string">')\r\n'</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(e.children[j][<span class="string">'type'</span>] === <span class="string">'text'</span>) writeData = writeData + e.children[j].data + <span class="string">'\r\n'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> writeData = writeData + e.children[0].data + <span class="string">'\r\n'</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(e_children.name === <span class="string">'img'</span>) writeData = writeData + <span class="string">'![Image]('</span>+e.children[0].attribs.src + <span class="string">')\r\n'</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">'div'</span> === name)&#123;</span><br><span class="line">    var codes = $(<span class="string">'#cnblogs_post_body .cnblogs_code pre'</span>).eq(code_idx++).text();</span><br><span class="line">    codes = codes.replace(/^(\s*)\d+/gm, <span class="string">' '</span>);</span><br><span class="line">    writeData = writeData + <span class="string">'```bash\r\n'</span> + codes + <span class="string">'\r\n```\r\n'</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">'h1'</span> === name) writeData = writeData + <span class="string">'# '</span> + e_children.data + <span class="string">'\r\n'</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">'h2'</span> === name) writeData = writeData + <span class="string">'## '</span> + e_children.data + <span class="string">'\r\n'</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">'h3'</span> === name) writeData = writeData + <span class="string">'### '</span> + e_children.data + <span class="string">'\r\n'</span>;</span><br></pre></td></tr></table></figure></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>完整代码请移步至本人的<br>(<a href="https://github.com/chenchangyuan/html2md" target="_blank" rel="noopener">https://github.com/chenchangyuan/html2md</a>)<br>，如果此文章对您有用请不吝star</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/linux环境下安装jdk/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.800Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/linux环境下安装jdk/">linux环境下安装jdk</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/10/网络爬虫之html2md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/JDK动态代理与CGLib动态代理/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.797Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/07/javap查看class文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javap查看class文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/JDK动态代理与CGLib动态代理/">JDK动态代理与CGLib动态代理</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="网络爬虫之html2md" data-title="网络爬虫之html2md" data-url="http://yoursite.com/2018/09/10/网络爬虫之html2md/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/JavaScript异步编程/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.795Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/JavaScript异步编程/">JavaScript异步编程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/JavaScript实现iphone时钟/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.791Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/JavaScript实现iphone时钟/">JavaScript实现iphone时钟</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/JavaScript模拟自由落体/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.788Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/JavaScript模拟自由落体/">JavaScript模拟自由落体</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/JavaScript跨域解决方式/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.786Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/JavaScript跨域解决方式/">JavaScript跨域解决方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/JavaScript防抖节流函数/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.782Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/JavaScript防抖节流函数/">JavaScript防抖节流函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/JavaScript  深入之从原型到原型链/" class="archive-article-date">
-  	<time datetime="2018-09-07T07:37:30.773Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/JavaScript  深入之从原型到原型链/">JavaScript  深入之从原型到原型链</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/07/Java爬取网络博客文章/" class="archive-article-date">
-  	<time datetime="2018-09-07T05:16:37.813Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/07/Java爬取网络博客文章/">Java爬取网络博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/09/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/09/">1</a><a class="page-number" href="/archives/2018/09/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -430,8 +350,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
