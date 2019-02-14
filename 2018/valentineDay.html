@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine's Day</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        canvas {
+            animation: myAnimation 10s infinite;
+            -webkit-animation: myAnimation 10s infinite;
+        }
+
+        @keyframes myAnimation {
+            0% {
+                transform: rotate3d(1,1,1,0deg);
+            }
+            100% {
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
+
+        @-webkit-keyframes myAnimation {
+            0% {
+                transform: rotate3d(1,1,1,0deg);
+            }
+            100% {
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
+        prev{
+            font-style: normal;
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<canvas>your browser does not support canvas</canvas>
+<div><prev></prev></div>
+<script>
+    var canvas = document.querySelector('canvas');
+        ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth * 2 / 3;
+        canvas.height = window.innerHeight * 2 / 3;
+    function draw() {
+        //起始点，终止点
+        var startX = canvas.width / 2,
+            startY = canvas.height / 5,
+            endX = canvas.width / 2,
+            endY = canvas.height * 3 / 4;
+        //控制点1，控制点2
+        var cpx1 = startX * 2 / 3,
+            cpy1 = 0,
+            cpx2 = cpx1 * 3 / 4,
+            cpy2 = startY * 5 / 3;
+        //控制点3，控制点4
+        var cpx3 = startX - (cpx1 - startX),
+            cpy3 = 0,
+            cpx4 = startX - (cpx2 - startX),
+            cpy4 = startY * 5 / 3;
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.moveTo(startX, startY);
+        ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, endX, endY);
+        ctx.moveTo(startX, startY);
+        ctx.bezierCurveTo(cpx3, cpy3, cpx4, cpy4, endX, endY);
+        ctx.fillStyle = '#EE0000';
+        ctx.fill();
+        ctx.save();
+        var offsetX = 60;
+            offsetY = 30;
+        ctx.beginPath();
+        //第二颗心
+        ctx.moveTo(startX + offsetX, startY + offsetY);
+        ctx.bezierCurveTo(cpx1 + offsetX, cpy1 + offsetY, cpx2 + offsetX, cpy2 + offsetY, endX + offsetX, endY + offsetY);
+        ctx.moveTo(startX + offsetX, startY + offsetY);
+        ctx.bezierCurveTo(cpx3 + offsetX, cpy3 + offsetY, cpx4 + offsetX, cpy4 + offsetY, endX + offsetX, endY + offsetY);
+        ctx.fillStyle = '#ff0000';
+        ctx.fill();
+        ctx.save();
+        var px1 = startX + offsetX,
+            py1 = startY + offsetY * 3,
+            px2 = startX + offsetX * 4,
+            py2 = startY + offsetY * 5,
+            px3 = startX + offsetX * 4 - 10,
+            py3 = startY + offsetY * 5 - 8,
+            px4 = startX + offsetX * 4 - 12,
+            py4 = startY + offsetY * 5 + 1;
+        ctx.beginPath();
+        ctx.lineWidth = 4;
+        ctx.moveTo(px1, py1);
+        ctx.lineTo(px2, py2);
+        ctx.moveTo(px2, py2);
+        ctx.lineTo(px3, py3);
+        ctx.moveTo(px2, py2);
+        ctx.lineTo(px4, py4);
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = 'blue';
+        ctx.closePath();
+        ctx.stroke();
+        ctx.save();
+    };
+    window.onresize = function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        draw();
+    }
+    draw();
+    setTimeout(function outputText(){
+        var str = '老婆，情人节快乐，近期时间太赶了，准备仓促，以此聊表心意。爱一个人，守护一份爱情，可以在早春一起踏春，可以在盛夏一起赏荷，可以在浅秋一起观月，可以在深冬一起寻梅，不厌倦，却欢乐，却平淡，不平凡，此生无憾已。';
+        var prev = document.querySelector('prev');
+        var i = 0;
+        function render(){
+            if(str.length <= i){
+                return;
+            }else{
+                setTimeout(function(){
+                    prev.innerHTML += str[i];
+                    i++;
+                    render();
+                }, 50);
+            }
+        }
+        render();
+    }, 1000);
+</script>
+</body>
+</html>
