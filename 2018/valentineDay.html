@@ -9,6 +9,9 @@
         }
         canvas {
             animation: myAnimation 10s infinite;
+
+            -o-animation: myAnimation 10s infinite;
+            -moz-animation: myAnimation 10s infinite;
             -webkit-animation: myAnimation 10s infinite;
         }
 
@@ -21,6 +24,22 @@
             }
         }
 
+        @-o-keyframes myAnimation {
+            0% {
+                transform: rotate3d(1,1,1,0deg);
+            }
+            100% {
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
+        @-moz-keyframes myAnimation {
+            0% {
+                transform: rotate3d(1,1,1,0deg);
+            }
+            100% {
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
         @-webkit-keyframes myAnimation {
             0% {
                 transform: rotate3d(1,1,1,0deg);
@@ -41,8 +60,8 @@
 <script>
     var canvas = document.querySelector('canvas');
         ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth * 2 / 3;
-        canvas.height = window.innerHeight * 2 / 3;
+        canvas.width = 550;
+        canvas.height = 230;
     function draw() {
         //起始点，终止点
         var startX = canvas.width / 2,
@@ -101,11 +120,6 @@
         ctx.stroke();
         ctx.save();
     };
-    window.onresize = function () {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        draw();
-    }
     draw();
     setTimeout(function outputText(){
         var str = '如果，爱一个人，守护一份爱情，可以在早春一起踏春，可以在盛夏一起赏荷，可以在浅秋一起观月，可以在深冬一起寻梅，不厌倦，却欢乐，却平淡，不平凡，此生无憾已。老婆情人节快乐！！！';
